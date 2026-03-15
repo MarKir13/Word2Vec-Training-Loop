@@ -1,5 +1,4 @@
 import kagglehub
-import numpy as np
 import os
 
 def get_data():
@@ -11,4 +10,20 @@ def get_data():
     
     return text
 
+def preprocess_data(data):
+    WORD_LIMIT = 100000
 
+    words = data.split()
+    words = words[:WORD_LIMIT]
+    words_dict = set(words)
+    word_mapping = {}
+
+    for i, word in enumerate(words_dict):
+        word_mapping[word] = i
+
+    bigrams = []
+
+    for i in range(len(words) - 1):
+        bigrams.append((words[i], words[i+1]))
+        bigrams.append((words[i+1], words[i]))
+    return words_dict, word_mapping, bigrams
