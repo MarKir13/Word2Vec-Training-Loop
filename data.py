@@ -16,13 +16,15 @@ def preprocess_data(data, word_limit):
     words = words[:word_limit]
     words_dict = set(words)
     word_mapping = {}
+    index_mapping = {}
 
     for i, word in enumerate(words_dict):
         word_mapping[word] = i
+        index_mapping[i] = word
 
     bigrams = []
 
     for i in range(len(words) - 1):
         bigrams.append((words[i], words[i+1]))
         bigrams.append((words[i+1], words[i]))
-    return words_dict, word_mapping, bigrams
+    return words_dict, word_mapping, index_mapping, bigrams
