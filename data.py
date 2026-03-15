@@ -10,11 +10,10 @@ def get_data():
     
     return text
 
-def preprocess_data(data):
-    WORD_LIMIT = 100000
+def preprocess_data(data, word_limit):
 
     words = data.split()
-    words = words[:WORD_LIMIT]
+    words = words[:word_limit]
     words_dict = set(words)
     word_mapping = {}
 
