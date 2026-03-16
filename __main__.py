@@ -8,7 +8,8 @@ if __name__ == "__main__":
 
     input_weights, output_weights, word_mapping, index_mapping = load_model()
 
-    train(10, input_weights, output_weights, word_mapping, index_mapping, bigrams)
+    train(50, input_weights, output_weights, word_mapping, index_mapping, bigrams)
 
-    similar_words = get_context_words('authoritarian', input_weights, word_mapping, index_mapping)
-    print(similar_words)
+    word = 'authoritarian'
+    similar_words = get_context_words(word, input_weights, word_mapping, index_mapping)
+    print(f"Five best context words for word {word}: {similar_words}")

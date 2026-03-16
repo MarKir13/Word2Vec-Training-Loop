@@ -1,5 +1,4 @@
 import numpy as np
-from data import get_data, preprocess_data
 
 EMBEDDING_SIZE = 50
 
